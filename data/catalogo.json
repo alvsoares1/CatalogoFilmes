@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "titulo": "O Senhor dos Anéis: A Sociedade do Anel",
+    "descricao": "Um jovem hobbit, Frodo Bolseiro, deve destruir um anel mágico para salvar a Terra Média das forças do mal.",
+    "capa": "https://m.media-amazon.com/images/I/51Qvs9i5a%2BL._AC_SY445_.jpg",
+    "tipo": "filme",
+    "avaliacoes": [
+      5,
+      4,
+      5,
+      5,
+      3
+    ],
+    "comentarios": [
+      "muito bom"
+    ]
+  },
+  {
+    "id": 2,
+    "titulo": "Clube da Luta: Recomeço",
+    "descricao": "Após anos afastados, os membros do clube se reúnem para enfrentar novos desafios e descobrir o verdadeiro significado da luta.",
+    "capa": "https://m.media-amazon.com/images/I/51v5ZpFyaFL._AC_SY679_.jpg",
+    "tipo": "filme",
+    "avaliacoes": [
+      5,
+      5
+    ],
+    "comentarios": [
+      "muito bom!",
+      "Melhor filme!!!"
+    ]
+  }
+]

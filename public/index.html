@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Catálogo de Filmes</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+    <h1 style="font-size: 2rem;">Catálogo de Filmes</h1>
+    <div>
+      <div id="botoesUsuario" style="display: none; gap: 10px; align-items: center; display: flex;">
+        <button onclick="window.location.href='avaliacao.html'">Avaliar</button>
+        <button onclick="window.location.href='adicionar.html'">Adicionar</button>
+        <button onclick="logout()">Sair</button>
+      </div>
+
+      <div id="botoesVisitante" style="display: flex;">
+        <button onclick="window.location.href='login.html'">Login</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <input type="text" id="busca" placeholder="Buscar por título..." style="margin-bottom: 30px;" />
+
+    <div id="catalogo">
+    </div>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
