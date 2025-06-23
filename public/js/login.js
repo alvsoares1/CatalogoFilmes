@@ -3,19 +3,37 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
 
   const email = document.getElementById("email").value;
   const senha = document.getElementById("senha").value;
+  const mensagem = document.getElementById("loginMensagem");
 
-  const resposta = await fetch("/login", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ email, senha })
-  });
+  mensagem.style.display = "none";
+  mensagem.textContent = "";
+  mensagem.className = "mensagem"; 
 
-  const resultado = await resposta.json();
-  if (resultado.sucesso) {
-    alert("Login bem-sucedido!");
-    localStorage.setItem("usuarioLogado", email);
-    window.location.href = "index.html";
-  } else {
-    alert("Email ou senha incorretos!");
+  try {
+    const resposta = await fetch("/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, senha })
+    });
+
+    const resultado = await resposta.json();
+
+    mensagem.style.display = "block";
+
+    if (resultado.sucesso) {
+      mensagem.textContent = "Login bem-sucedido!";
+      mensagem.classList.add("sucesso");
+      localStorage.setItem("usuarioLogado", email);
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 1000);
+    } else {
+      mensagem.textContent = resultado.mensagem;
+      mensagem.classList.add("erro");
+    }
+  } catch (error) {
+    mensagem.style.display = "block";
+    mensagem.textContent = "Erro ao tentar fazer login.";
+    mensagem.classList.add("erro");
   }
 });

@@ -3,10 +3,8 @@ const usuarioLogado = localStorage.getItem("usuarioLogado");
 const botoesUsuario = document.getElementById("botoesUsuario");
 const botoesVisitante = document.getElementById("botoesVisitante");
 
-
 botoesUsuario.style.display = "none";
 botoesVisitante.style.display = "none";
-
 
 if (usuarioLogado) {
   botoesUsuario.style.display = "flex";
@@ -14,24 +12,31 @@ if (usuarioLogado) {
   botoesVisitante.style.display = "flex";
 }
 
-
 async function carregarCatalogo() {
-  const resposta = await fetch('/catalogo');
-  let catalogo = await resposta.json();
+  try {
+    const resposta = await fetch('/catalogo');
+    if (!resposta.ok) throw new Error("Erro ao carregar catálogo");
+    let catalogo = await resposta.json();
 
-  catalogo = catalogo.filter(item => item.tipo === "filme");
+    catalogo = catalogo.filter(item => item.tipo === "filme");
 
-  exibirCatalogo(catalogo);
+    exibirCatalogo(catalogo);
 
-  document.getElementById("busca").addEventListener("input", () => {
-    const termo = document.getElementById("busca").value.toLowerCase();
-    const filtrado = catalogo.filter(item =>
-      item.titulo.toLowerCase().includes(termo)
-    );
-    exibirCatalogo(filtrado);
-  });
+    document.getElementById("busca").addEventListener("input", () => {
+      const termo = document.getElementById("busca").value.toLowerCase();
+      const filtrado = catalogo.filter(item =>
+        item.titulo.toLowerCase().includes(termo)
+      );
+      exibirCatalogo(filtrado);
+    });
+  } catch (error) {
+    console.error(error);
+    const mensagem = document.getElementById("favoritoMensagem");
+    mensagem.style.display = "block";
+    mensagem.textContent = "Erro ao carregar catálogo.";
+    mensagem.className = "mensagem erro";
+  }
 }
-
 
 function exibirCatalogo(itens) {
   const container = document.getElementById("catalogo");
@@ -67,14 +72,27 @@ function verDetalhes(id) {
 }
 
 function favoritar(id) {
+  const mensagem = document.getElementById("favoritoMensagem");
+  mensagem.style.display = "none";
+  mensagem.textContent = "";
+  mensagem.className = "mensagem";
+
   let favoritos = JSON.parse(localStorage.getItem("favoritos") || "[]");
   if (!favoritos.includes(id)) {
     favoritos.push(id);
     localStorage.setItem("favoritos", JSON.stringify(favoritos));
-    alert("Adicionado aos favoritos!");
+    mensagem.style.display = "block";
+    mensagem.textContent = "Adicionado aos favoritos!";
+    mensagem.classList.add("sucesso");
   } else {
-    alert("Já está nos favoritos.");
+    mensagem.style.display = "block";
+    mensagem.textContent = "Já está nos favoritos.";
+    mensagem.classList.add("erro");
   }
+
+  setTimeout(() => {
+    mensagem.style.display = "none";
+  }, 2000);
 }
 
 function logout() {
@@ -86,6 +104,5 @@ function logout() {
     window.location.reload();
   }, 1000);
 }
-
 
 carregarCatalogo();

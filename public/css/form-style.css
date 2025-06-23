@@ -1,13 +1,11 @@
-/* form-style.css */
 
-/* Reset básico para o formulário */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Corpo da página para centralizar o conteúdo */
+
 html, body {
   height: 100%;
 }
@@ -19,12 +17,12 @@ body {
   line-height: 1.6;
 
   display: flex;
-  justify-content: center; /* Centraliza horizontalmente */
-  align-items: center;     /* Centraliza verticalmente */
-  height: 100vh;           /* Altura total da janela */
+  justify-content: center; 
+  align-items: center;    
+  height: 100vh;           
 }
 
-/* Container do formulário */
+
 .form-container {
   background: #ffffff;
   padding: 30px 40px;
@@ -36,20 +34,20 @@ body {
   text-align: center;
 }
 
-/* Formulário em coluna com espaçamento */
+
 form {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-/* Labels alinhados à esquerda */
+
 label {
   text-align: left;
   font-weight: 600;
 }
 
-/* Inputs estilizados */
+
 input {
   padding: 10px;
   border-radius: 6px;
@@ -57,7 +55,7 @@ input {
   font-size: 1rem;
 }
 
-/* Botão estilizado */
+
 button {
   background: #007BFF;
   color: white;
@@ -73,7 +71,7 @@ button:hover {
   background: #0056b3;
 }
 
-/* Link para alternar entre login e cadastro */
+
 p {
   margin-top: 20px;
   font-size: 0.95rem;
@@ -87,4 +85,25 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+.mensagem {
+  margin-top: 15px;
+  font-size: 0.95rem;
+  text-align: center;
+  padding: 10px;
+  border-radius: 4px;
+  display: none; 
+}
+
+.mensagem.erro {
+  color: #d32f2f;
+  background-color: #fddede;
+  border: 1px solid #d32f2f;
+}
+
+.mensagem.sucesso {
+  color: #388e3c;
+  background-color: #dff0d8;
+  border: 1px solid #388e3c;
 }

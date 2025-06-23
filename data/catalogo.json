@@ -10,10 +10,16 @@
       4,
       5,
       5,
-      3
+      3,
+      5,
+      5,
+      4
     ],
     "comentarios": [
-      "muito bom"
+      "muito bom",
+      "Muito bom!",
+      "Ótimo",
+      "Bom"
     ]
   },
   {
@@ -29,6 +35,19 @@
     "comentarios": [
       "muito bom!",
       "Melhor filme!!!"
+    ]
+  },
+  {
+    "id": 3,
+    "titulo": "Interstellar",
+    "descricao": "Um grupo de exploradores faz uso de um buraco de minhoca recém-descoberto para superar as limitações de viagem interestelar e salvar a humanidade.",
+    "capa": "https://upload.wikimedia.org/wikipedia/pt/3/3a/Interstellar_Filme.png",
+    "tipo": "filme",
+    "avaliacoes": [
+      5
+    ],
+    "comentarios": [
+      "Ótimo filme"
     ]
   }
 ]

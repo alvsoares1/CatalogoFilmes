@@ -1,10 +1,10 @@
-// Função para pegar o valor do parâmetro id da URL
+
 function getIdFromUrl() {
   const params = new URLSearchParams(window.location.search);
   return params.get("id");
 }
 
-// Calcula a média das avaliações ou retorna "Sem avaliações"
+
 function calcularMedia(avaliacoes) {
   if (!avaliacoes || avaliacoes.length === 0) return "Sem avaliações";
   const soma = avaliacoes.reduce((acc, nota) => acc + nota, 0);
@@ -31,7 +31,7 @@ async function carregarDetalhes() {
     const media = calcularMedia(item.avaliacoes);
     const comentarios = item.comentarios || [];
 
-    // Monta o HTML para exibir os detalhes
+
     const html = `
       <h1>${item.titulo}</h1>
       <img src="${item.capa}" alt="${item.titulo}" style="max-width: 300px;"/>

@@ -175,3 +175,27 @@ button + button {
   font-size: 0.95rem;
   border-radius: 8px;
 }
+
+
+.mensagem {
+  margin: 20px auto;
+  max-width: 400px;
+  text-align: center;
+  font-size: 0.95rem;
+  padding: 10px;
+  border-radius: 4px;
+  display: none;
+}
+
+.mensagem.erro {
+  color: #d32f2f;
+  background-color: #fddede;
+  border: 1px solid #d32f2f;
+}
+
+.mensagem.sucesso {
+  color: #388e3c;
+  background-color: #dff0d8;
+  border: 1px solid #388e3c;
+}
+

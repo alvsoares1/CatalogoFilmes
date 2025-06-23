@@ -5,27 +5,37 @@ document.getElementById("adicionarForm").addEventListener("submit", async (e) =>
   const descricao = document.getElementById("descricao").value.trim();
   const capa = document.getElementById("capa").value.trim();
   const tipo = document.getElementById("tipo").value;
+  const mensagem = document.getElementById("adicionarMensagem");
 
-  console.log("Dados do formulário:", { titulo, descricao, capa, tipo });
+  mensagem.style.display = "none";
+  mensagem.textContent = "";
+  mensagem.className = "mensagem";
 
-  if (!titulo || !descricao || !capa || !tipo) {
-    alert("Preencha todos os campos, incluindo o tipo!");
-    return;
-  }
+  try {
+    const resposta = await fetch("/adicionar", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ titulo, descricao, capa, tipo }),
+    });
 
-  const resposta = await fetch("/adicionar", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ titulo, descricao, capa, tipo }),
-  });
+    const resultado = await resposta.json();
 
-  const resultado = await resposta.json();
-  console.log("Resposta do backend:", resultado);
+    mensagem.style.display = "block";
 
-  if (resultado.sucesso) {
-    alert("Novo item adicionado com sucesso!");
-    window.location.href = "index.html";
-  } else {
-    alert("Erro: " + resultado.mensagem);
+    if (resultado.sucesso) {
+      mensagem.textContent = "Novo item adicionado com sucesso! Redirecionando...";
+      mensagem.classList.add("sucesso");
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 1500);
+    } else {
+      mensagem.textContent = resultado.mensagem;
+      mensagem.classList.add("erro");
+    }
+  } catch (error) {
+    console.error(error);
+    mensagem.style.display = "block";
+    mensagem.textContent = "Erro ao adicionar item.";
+    mensagem.classList.add("erro");
   }
 });
