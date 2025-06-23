@@ -144,6 +144,3 @@ function logout() {
     window.location.reload();
   }, 1000);
 }
-
-// Se você usar carregarCatalogo na página index, chame aqui:
-// carregarCatalogo();
