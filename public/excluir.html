@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Excluir Filme</title>
+  <link rel="stylesheet" href="css/excluir.css" />
+</head>
+<body>
+
+  <h1>Excluir Filme</h1>
+
+  <form id="excluirForm">
+    <label for="itemId">Selecione o filme:</label>
+    <select id="itemId" required>
+      <option value="">Selecione...</option>
+    </select>
+    <button type="submit">Excluir</button>
+  </form>
+
+  <div id="excluirMensagem" class="mensagem"></div>
+
+  <button class="voltar-btn" onclick="window.location.href='index.html'">Voltar ao Catálogo</button>
+
+  <script src="js/excluir.js"></script>
+</body>
+</html>

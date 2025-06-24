@@ -1,16 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #f0f2f5;
-  margin: 0;
-  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background-color: #f4f7fb;
+  color: #333;
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 100vh;
-  color: #333;
+  padding: 40px 20px;
 }
 
+/* Título */
 h1 {
   margin-bottom: 30px;
   color: #2c3e50;
@@ -18,71 +26,58 @@ h1 {
   text-align: center;
 }
 
-form#adicionarForm {
-  background: #fff;
-  padding: 25px 30px;
-  border-radius: 10px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+
+form#excluirForm {
+  background: #ffffff;
+  padding: 30px 35px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
   width: 100%;
   max-width: 400px;
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   gap: 18px;
 }
 
-form#adicionarForm label {
+form#excluirForm label {
   font-weight: 600;
-  margin-bottom: 5px;
-  color: #555;
+  text-align: left;
 }
 
-form#adicionarForm input[type="text"],
-form#adicionarForm input[type="url"],
-form#adicionarForm textarea,
-form#adicionarForm select {
+form#excluirForm select {
   padding: 10px 12px;
   border: 1.5px solid #ccc;
   border-radius: 6px;
   font-size: 16px;
-  resize: vertical;
   transition: border-color 0.3s;
-  font-family: inherit;
 }
 
-form#adicionarForm input[type="text"]:focus,
-form#adicionarForm input[type="url"]:focus,
-form#adicionarForm textarea:focus,
-form#adicionarForm select:focus {
+form#excluirForm select:focus {
   border-color: #3498db;
   outline: none;
-  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.4);
 }
 
-form#adicionarForm textarea {
-  min-height: 90px;
-}
-
-form#adicionarForm button[type="submit"] {
+form#excluirForm button[type="submit"] {
   background-color: #3498db;
   color: white;
   font-weight: 700;
-  padding: 12px 0;
+  padding: 12px;
   border: none;
   border-radius: 8px;
   font-size: 18px;
   cursor: pointer;
   transition: background-color 0.25s ease;
-  margin-top: 10px;
 }
 
-form#adicionarForm button[type="submit"]:hover {
+form#excluirForm button[type="submit"]:hover {
   background-color: #2980b9;
 }
 
-button {
+
+.voltar-btn {
   margin-top: 25px;
-  background-color: transparent;
+  background: transparent;
   color: #3498db;
   border: 2px solid #3498db;
   padding: 10px 18px;
@@ -92,28 +87,29 @@ button {
   transition: background-color 0.25s ease, color 0.25s ease;
 }
 
-button:hover {
+.voltar-btn:hover {
   background-color: #3498db;
   color: white;
 }
 
+
 .mensagem {
-  margin-top: 15px;
+  margin-top: 20px;
   font-size: 0.95rem;
   text-align: center;
-  padding: 10px;
+  padding: 12px;
   border-radius: 4px;
   display: none;
-}
-
-.mensagem.sucesso {
-  color: #388e3c;
-  background-color: #dff0d8;
-  border: 1px solid #388e3c;
 }
 
 .mensagem.erro {
   color: #d32f2f;
   background-color: #fddede;
   border: 1px solid #d32f2f;
+}
+
+.mensagem.sucesso {
+  color: #388e3c;
+  background-color: #dff0d8;
+  border: 1px solid #388e3c;
 }

@@ -23,7 +23,7 @@ document.getElementById("adicionarForm").addEventListener("submit", async (e) =>
     mensagem.style.display = "block";
 
     if (resultado.sucesso) {
-      mensagem.textContent = "Novo item adicionado com sucesso! Redirecionando...";
+      mensagem.textContent = "Novo item adicionado com sucesso!";
       mensagem.classList.add("sucesso");
       setTimeout(() => {
         window.location.href = "index.html";

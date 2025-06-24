@@ -66,3 +66,27 @@ exports.avaliar = (req, res) => {
   fs.writeFileSync(catalogoPath, JSON.stringify(catalogo, null, 2));
   res.json({ sucesso: true, mensagem: "Avaliação adicionada com sucesso!" });
 };
+
+exports.excluir = (req, res) => {
+  const { id } = req.params;
+
+  if (!id) {
+    return res.json({ sucesso: false, mensagem: "ID não informado." });
+  }
+
+  let catalogo = [];
+  if (fs.existsSync(catalogoPath)) {
+    catalogo = JSON.parse(fs.readFileSync(catalogoPath));
+  }
+
+  const index = catalogo.findIndex(item => item.id === Number(id));
+
+  if (index === -1) {
+    return res.json({ sucesso: false, mensagem: "Filme não encontrado." });
+  }
+
+  catalogo.splice(index, 1);
+  fs.writeFileSync(catalogoPath, JSON.stringify(catalogo, null, 2));
+
+  res.json({ sucesso: true, mensagem: "Filme excluído com sucesso!" });
+};
